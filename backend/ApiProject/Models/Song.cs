@@ -17,7 +17,7 @@ namespace ApiProject.Models
         public virtual Album Album { get; set; }
         public int AlbumID { get; set; }
 
-        public Song(int id, string title, string link, string time, int artistID, int albumID,)
+        public Song(int id, string title, string link, string time, int artistID, int albumID)
         {
             ID = id;
             Title = title;
