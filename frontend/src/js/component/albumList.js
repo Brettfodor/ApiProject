@@ -1,7 +1,5 @@
 export default function AlbumList() {
     
-    
-    return `
-    
-    `
+    let returnHtml = "";
+    return 
 };
