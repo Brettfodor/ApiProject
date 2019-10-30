@@ -9,23 +9,23 @@ namespace ApiProject.Models
 {
     public class Song
     {
-        [Key]public int SongId { get; set; }
+        public int ID { get; set; }
         public string Title { get; set; }
         public string Link { get; set; }
         public string Time { get; set; }
 
         
         public virtual Album Album { get; set; }
-        [ForeignKey("ID")] public int AlbumID { get; set; }
+        public int AlbumID { get; set; }
 
-        public Song(int id, string title, string link, string time,  int albumId)
+        public Song(int id, string title, string link, string time, int albumId)
         {
-            SongId = id;
+            ID = id;
             Title = title;
             Link = link;
             Time = time;
-            AlbumID = albumId;  
-            
+            AlbumID = albumId;
+
         }
         public Song()
         {

@@ -8,9 +8,9 @@ namespace ApiProject.Models
 {
     public class Artist
     {
-        [Key] int ArtistId { get; set; }
-        string Name { get; set; }
-        string Image { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
 
 
         public virtual ICollection<Album> Albums { get; set; }
@@ -18,7 +18,7 @@ namespace ApiProject.Models
 
         public Artist(int id, string name, string image)
         {
-            ArtistId = id;
+            ID = id;
             Name = name;
             Image = image;
         }
