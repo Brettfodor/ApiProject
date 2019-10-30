@@ -10,6 +10,7 @@ namespace ApiProject.Tests
         [Fact]
         public void Get_Returns_List_of_Artists()
         {
+
             var underTest = new ArtistController();
 
             var result = underTest.Get();
@@ -17,15 +18,16 @@ namespace ApiProject.Tests
             Assert.Equal(2, result.Value.Count());
 
         }
+
         //[Fact]
         //public void Post_Creates_New_Artist()
         //{
 
-        //    var underTest = new TodoController();
+        //    var underTest = new ArtistController();
 
-        //    var result = underTest.Post("New Task");
+        //    var result = underTest.Post("New Artist");
 
-        //    Assert.Contains("New task", result.Value);
+        //    Assert.Contains("New Artist", result.Value);
 
         //}
     }
