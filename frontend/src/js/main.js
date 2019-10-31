@@ -9,10 +9,11 @@ export default () =>
 };
 
 function Artistbuild(){
-    ArtistProfile();
+    artistProfile();
 }
 function Pagebuild(){
     header();
+    artistProfile();
     artistList();
     footer();
 };
