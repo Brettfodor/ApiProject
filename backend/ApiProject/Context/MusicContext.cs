@@ -58,10 +58,10 @@ namespace ApiProject.Context
                     new Song(23, "Go", "link", "1:53", 1),
                     new Song(24, "Asthenia", "link", "4:20", 1),
                     new Song(25, "Always", "link", "4:12", 1),
-                    new Song(25, "Easy Target", "link", "2:20", 1),
-                    new Song(25, "All Of This", "link", "4:40", 1),
-                    new Song(25, "Here's Your Letter", "link", "4:55", 1),
-                    new Song(25, "I'm Lost Without You", "link", "6:22", 1)
+                    new Song(26, "Easy Target", "link", "2:20", 1),
+                    new Song(27, "All Of This", "link", "4:40", 1),
+                    new Song(28, "Here's Your Letter", "link", "4:55", 1),
+                    new Song(29, "I'm Lost Without You", "link", "6:22", 1)
 
 
 
