@@ -25,7 +25,7 @@ namespace ApiProject.Context
         {
             modelBuilder.Entity<Album>().HasData(
                     new Album(1, "East Atlanta Santa", "./images/east-atlanta-santa.png", "label", 1),
-                    new Album(2, "Blink 182", "image", "label",2)
+                    new Album(2, "Blink 182", "./images/blink182.jpg", "label",2)
                 );
 
 
@@ -48,30 +48,25 @@ namespace ApiProject.Context
                     new Song(14, "Trappin Out the Mansion", "link", "3:39", 1),
                     new Song(15, "One Day At a Time ", "link", "2:29", 1),
 
-                    new Song(16, "Feeling This", "link", "2:53", 1),
-                    new Song(17, "Obvious", "link", "2:43", 1),
-                    new Song(18, "I Miss You", "link", "3:47", 1),
-                    new Song(19, "Violence", "link", "5:20", 1),
-                    new Song(20, "Stockholm Syndrome", "link", "2:42", 1),
-                    new Song(21, "Down", "link", "3:03", 1),
-                    new Song(22, "The Fallen Interlude", "link", "2:13", 1),
-                    new Song(23, "Go", "link", "1:53", 1),
-                    new Song(24, "Asthenia", "link", "4:20", 1),
-                    new Song(25, "Always", "link", "4:12", 1),
-                    new Song(26, "Easy Target", "link", "2:20", 1),
-                    new Song(27, "All Of This", "link", "4:40", 1),
-                    new Song(28, "Here's Your Letter", "link", "4:55", 1),
-                    new Song(29, "I'm Lost Without You", "link", "6:22", 1)
-
-
-
-
-
+                    new Song(16, "Feeling This", "link", "2:53", 2),
+                    new Song(17, "Obvious", "link", "2:43", 2),
+                    new Song(18, "I Miss You", "link", "3:47", 2),
+                    new Song(19, "Violence", "link", "5:20", 2),
+                    new Song(20, "Stockholm Syndrome", "link", "2:42", 2),
+                    new Song(21, "Down", "link", "3:03", 2),
+                    new Song(22, "The Fallen Interlude", "link", "2:13", 2),
+                    new Song(23, "Go", "link", "1:53", 2),
+                    new Song(24, "Asthenia", "link", "4:20", 2),
+                    new Song(25, "Always", "link", "4:12", 2),
+                    new Song(26, "Easy Target", "link", "2:20", 2),
+                    new Song(27, "All Of This", "link", "4:40", 2),
+                    new Song(28, "Here's Your Letter", "link", "4:55", 2),
+                    new Song(29, "I'm Lost Without You", "link", "6:22", 2)
                     );
 
             modelBuilder.Entity<Artist>().HasData(
                     new Artist(1, "Gucci Mane", "./images/gucci-mane.jpg"),
-                    new Artist(1, "Blink 182", "./images/gucci-mane.jpg")
+                    new Artist(2, "Blink 182", "./images/gucci-mane.jpg")
                     );
             base.OnModelCreating(modelBuilder);
         }
