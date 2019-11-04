@@ -2,46 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProject.Models;
+using ApiProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/artists")]
     [ApiController]
     public class ArtistController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        //private static List<string> all = new List<string>()
+        //{
+        //    "Remodel Bathroom",
+        //    "Finish my laser app",
+        //    "Do things with kids"
+        //};
+
+        private IRepository<Artist> ArtistRepo;
+
+        public ArtistController(IRepository<Artist> ArtistRepo)
         {
-            return new string[] { "artist1", "artist2" };
+            this.ArtistRepo = ArtistRepo;
         }
 
-        // GET api/values/5
+        // GET api/Artists
+        [HttpGet]
+        public IEnumerable<Artist> Get()
+        {
+            return ArtistRepo.GetAll();
+        }
+
+        // GET api/Artists/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "artist";
+            return "Artist";
         }
 
-        // POST api/values
+        // POST api/Artists
         [HttpPost]
-        public void Post([FromBody] string artist)
+        public IEnumerable<Artist> Post([FromBody] Artist Artist)
         {
+            ArtistRepo.Create(Artist);
+            return ArtistRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Artists/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string artist)
+        public void Put(int id, [FromBody] string Artist)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/Artists/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
-
     }
 }

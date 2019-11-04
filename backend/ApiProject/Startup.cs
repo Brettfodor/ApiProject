@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ApiProject.Context;
+using ApiProject.Models;
+using ApiProject.Repositories;
 
 namespace ApiProject
 {
@@ -29,6 +31,9 @@ namespace ApiProject
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<MusicContext>();
+            services.AddScoped<IRepository<Song>, SongRepository>();
+            services.AddScoped<IRepository<Album>, AlbumRepository>();
+            services.AddScoped<IRepository<Artist>, ArtistRepository>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
