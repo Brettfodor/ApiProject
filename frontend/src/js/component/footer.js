@@ -3,6 +3,4 @@ export default function Footer() {
     <small>&copy WCCI 2019</small>
     
     `
-
-
 };
