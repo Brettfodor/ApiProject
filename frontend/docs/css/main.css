@@ -4,6 +4,9 @@
     padding: 0;
   }
   #app {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: white;
     height: 100vh;
   }
@@ -14,4 +17,20 @@
     flex-direction: row;
     justify-content: space-evenly;
     background-color: deepskyblue;
+  }
+  #artist-list, #artist-profile
+  {
+    display: block;
+    height: 100%;
+    margin: 1rem;
+    background-color: dimgray;
+    border-radius: 1rem;
+  }
+  #artist-profile
+  {
+    width: 60%;
+  }
+  #artist-list
+  {
+    width: 30%;
   }
