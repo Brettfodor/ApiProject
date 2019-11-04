@@ -1,15 +1,26 @@
-export default function AlbumList() {
-    
-    let returnHtml = "";
-    returnHtml += `
+export default function AlbumList(albumList) {
+    return `
     <section id='album-list'>
-        <article class="album">
-            <h2>Album Name</2>
-            <ul id="song-list">
-                <li class="song-item">Song</li>
-            </ul>
-        </article>
-    </section>
-    `;
-    return returnHtml;
-};
+    
+    ${AlbumList
+        .map(albumList => {
+            return `
+            <article class="album">
+            <li>
+                <h3>${albumList.name}</h3>
+            </li>
+            </article>
+   
+                `;
+        })
+        .join("")}
+    
+   
+        
+            
+           
+        </section>  
+        
+    `
+
+}

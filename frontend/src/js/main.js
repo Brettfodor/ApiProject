@@ -3,6 +3,7 @@ import Footer from "./component/footer";
 import ArtistList from "./component/artistList";
 import ArtistProfile from "./component/artistProfile";
 import AlbumList from "./component/albumList";
+import ApiActions from "./API/apiActions";
 
 export default () =>
 {
