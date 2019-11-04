@@ -17,8 +17,8 @@ namespace ApiProject.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=ApiProject;Trusted_Connection=True;";
-            optionsBuilder.UseSqlServer(connectionString)
-                          .UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer(connectionString);
+                          //.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
