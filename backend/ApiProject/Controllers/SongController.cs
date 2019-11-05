@@ -20,18 +20,18 @@ namespace ApiProject.Controllers
         //    "Do things with kids"
         //};
 
-        private IRepository<Song> SongRepo;
+        private IRepository<Song> songRepo;
 
-        public SongController(IRepository<Song> SongRepo)
+        public SongController(IRepository<Song> songRepo)
         {
-            this.SongRepo = SongRepo;
+            this.songRepo = songRepo;
         }
 
         // GET api/Songs
         [HttpGet]
         public IEnumerable<Song> Get()
         {
-            return SongRepo.GetAll();
+            return songRepo.GetAll();
         }
 
         // GET api/Songs/5
@@ -45,8 +45,8 @@ namespace ApiProject.Controllers
         [HttpPost]
         public IEnumerable<Song> Post([FromBody] Song Song)
         {
-            SongRepo.Create(Song);
-            return SongRepo.GetAll();
+            songRepo.Create(Song);
+            return songRepo.GetAll();
         }
 
         // PUT api/Songs/5
