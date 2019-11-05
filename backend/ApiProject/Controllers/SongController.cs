@@ -43,17 +43,17 @@ namespace ApiProject.Controllers
 
         // POST api/Songs
         [HttpPost]
-        public IEnumerable<Song> Post([FromBody] Song Song)
+        public IEnumerable<Song> Post([FromBody] Song song)
         {
-            songRepo.Create(Song);
+            songRepo.Create(song);
             return songRepo.GetAll();
         }
 
         // PUT api/Songs/5
         [HttpPut("{id}")]
-        public IEnumerable<Song> Put([FromBody] Song Song)
+        public IEnumerable<Song> Put([FromBody] Song song)
         {
-            songRepo.Update(Song);
+            songRepo.Update(song);
             return songRepo.GetAll();
         }
 

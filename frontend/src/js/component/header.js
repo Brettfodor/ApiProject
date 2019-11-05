@@ -3,8 +3,9 @@ export default function Header() {
     <nav> 
     <ul class="nav__header">
         <li class ="nav__artists">Artists</li>
-        <li class ="nav__songs">Songs</li>
         <li class ="nav__albums">Albums</li>
+        <li class ="nav__songs">Songs</li>
+        
     </ul>    
     <nav/>
 

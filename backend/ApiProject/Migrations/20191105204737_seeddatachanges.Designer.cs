@@ -3,14 +3,16 @@ using ApiProject.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiProject.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20191105204737_seeddatachanges")]
+    partial class seeddatachanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,10 +41,10 @@ namespace ApiProject.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { ID = 1, ArtistID = 1, Image = "/images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
-                        new { ID = 2, ArtistID = 2, Image = "/images/blink182.jpg", Label = "label", Title = "Blink 182" },
-                        new { ID = 3, ArtistID = 3, Image = "/images/poison.jpg", Label = "label", Title = "The Poison" },
-                        new { ID = 4, ArtistID = 4, Image = "/images/fmc.png", Label = "label", Title = "Full Moon Fever" }
+                        new { ID = 1, ArtistID = 1, Image = "./images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
+                        new { ID = 2, ArtistID = 2, Image = "./images/blink182.jpg", Label = "label", Title = "Blink 182" },
+                        new { ID = 3, ArtistID = 3, Image = "./images/poison.jpg", Label = "label", Title = "The Poison" },
+                        new { ID = 4, ArtistID = 4, Image = "./images/fmc.png", Label = "label", Title = "Full Moon Fever" }
                     );
                 });
 

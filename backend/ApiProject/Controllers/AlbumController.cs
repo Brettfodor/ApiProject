@@ -13,57 +13,51 @@ namespace ApiProject.Controllers
     [ApiController]
     public class AlbumController : ControllerBase
     {
-        //private static List<string> all = new List<string>()
-        //{
-        //    "Remodel Bathroom",
-        //    "Finish my laser app",
-        //    "Do things with kids"
-        //};
 
-        private IRepository<Album> AlbumRepo;
+        private IRepository<Album> albumRepo;
 
-        public AlbumController(IRepository<Album> AlbumRepo)
+        public AlbumController(IRepository<Album> albumRepo)
         {
-            this.AlbumRepo = AlbumRepo;
+            this.albumRepo = albumRepo;
         }
 
         // GET api/Albums
         [HttpGet]
         public IEnumerable<Album> Get()
         {
-            return AlbumRepo.GetAll();
+            return albumRepo.GetAll();
         }
 
         // GET api/Albums/5
         [HttpGet("{id}")]
         public Album Get(int id)
         {
-            return AlbumRepo.GetById(id);
+            return albumRepo.GetById(id);
         }
 
         // POST api/Albums
         [HttpPost]
-        public IEnumerable<Album> Post([FromBody] Album Album)
+        public IEnumerable<Album> Post([FromBody] Album album)
         {
-            AlbumRepo.Create(Album);
-            return AlbumRepo.GetAll();
+            albumRepo.Create(album);
+            return albumRepo.GetAll();
         }
 
         // PUT api/Albums/5
         [HttpPut("{id}")]
-        public IEnumerable<Album> Put([FromBody] Album Album)
+        public IEnumerable<Album> Put([FromBody] Album album)
         {
-            AlbumRepo.Update(Album);
-            return AlbumRepo.GetAll();
+            albumRepo.Update(album);
+            return albumRepo.GetAll();
         }
 
         // DELETE api/Albums/5
         [HttpDelete("{id}")]
         public IEnumerable<Album> Delete(int id)
         {
-            var album = AlbumRepo.GetById(id);
-            AlbumRepo.Delete(album);
-            return AlbumRepo.GetAll();
+            var album = albumRepo.GetById(id);
+            albumRepo.Delete(album);
+            return albumRepo.GetAll();
         }
     }
 }
