@@ -7,7 +7,7 @@ export default function Artists(artists) {
                 return `
                     <li>
                         <h3>${artist.name}</h3>
-                        <img src="${artist.image}"/>
+                        <img src=${artist.image}></img>
                         <input class="artist__id" type="hidden" value="${artist.id}">
                         <button class="edit-artist__submit" >Edit</button>
                         <button class="delete-artist__submit">Delete</button>
