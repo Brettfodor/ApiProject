@@ -2,45 +2,68 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProject.Models;
+using ApiProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/albums")]
     [ApiController]
     public class AlbumController : ControllerBase
     {
-        // GET api/values
+        //private static List<string> all = new List<string>()
+        //{
+        //    "Remodel Bathroom",
+        //    "Finish my laser app",
+        //    "Do things with kids"
+        //};
+
+        private IRepository<Album> AlbumRepo;
+
+        public AlbumController(IRepository<Album> AlbumRepo)
+        {
+            this.AlbumRepo = AlbumRepo;
+        }
+
+        // GET api/Albums
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Album> Get()
         {
-            return new string[] { "album1", "album2" };
+            return AlbumRepo.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/Albums/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Album Get(int id)
         {
-            return "album";
+            return AlbumRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST api/Albums
         [HttpPost]
-        public void Post([FromBody] string album)
+        public IEnumerable<Album> Post([FromBody] Album Album)
         {
+            AlbumRepo.Create(Album);
+            return AlbumRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Albums/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string album)
+        public IEnumerable<Album> Put([FromBody] Album Album)
         {
+            AlbumRepo.Update(Album);
+            return AlbumRepo.GetAll();
         }
 
-        // DELETE api/values/5
+        // DELETE api/Albums/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Album> Delete(int id)
         {
+            var album = AlbumRepo.GetById(id);
+            AlbumRepo.Delete(album);
+            return AlbumRepo.GetAll();
         }
     }
 }

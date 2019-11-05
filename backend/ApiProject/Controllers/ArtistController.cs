@@ -2,46 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProject.Models;
+using ApiProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/artists")]
     [ApiController]
     public class ArtistController : ControllerBase
     {
-        // GET api/values
+  
+        private IRepository<Artist> artistRepo;
+
+        public ArtistController(IRepository<Artist> artistRepo)
+        {
+            this.artistRepo = artistRepo;
+        }
+
+        // GET api/Artists
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Artist> Get()
         {
-            return new string[] { "artist1", "artist2" };
+            return artistRepo.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/Artists/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Artist Get(int id)
         {
-            return "artist";
+            return artistRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST api/Artists
         [HttpPost]
-        public void Post([FromBody] string artist)
+        public IEnumerable<Artist> Post([FromBody] Artist artist)
         {
+            artistRepo.Create(artist);
+            return artistRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Artists/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string artist)
+        public IEnumerable<Artist> Put([FromBody] Artist artist)
         {
+            artistRepo.Update(artist);
+            return artistRepo.GetAll();
         }
 
-        // DELETE api/values/5
+        // DELETE api/Artists/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Artist> Delete(int id)
         {
+            var artist = artistRepo.GetById(id);
+            artistRepo.Delete(artist);
+            return artistRepo.GetAll();
         }
-
     }
 }

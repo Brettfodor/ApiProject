@@ -21,7 +21,6 @@
   #artist-list, #artist-profile
   {
     display: block;
-    height: 100%;
     margin: 1rem;
     background-color: dimgray;
     border-radius: 1rem;
@@ -34,3 +33,5 @@
   {
     width: 30%;
   }
+
+  

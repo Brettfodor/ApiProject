@@ -2,45 +2,68 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProject.Models;
+using ApiProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/songs")]
     [ApiController]
     public class SongController : ControllerBase
     {
-        // GET api/values
+        //private static List<string> all = new List<string>()
+        //{
+        //    "Remodel Bathroom",
+        //    "Finish my laser app",
+        //    "Do things with kids"
+        //};
+
+        private IRepository<Song> songRepo;
+
+        public SongController(IRepository<Song> songRepo)
+        {
+            this.songRepo = songRepo;
+        }
+
+        // GET api/Songs
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Song> Get()
         {
-            return new string[] { "song1", "song2" };
+            return songRepo.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/Songs/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Song Get(int id)
         {
-            return "song";
+            return songRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST api/Songs
         [HttpPost]
-        public void Post([FromBody] string song)
+        public IEnumerable<Song> Post([FromBody] Song Song)
         {
+            songRepo.Create(Song);
+            return songRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Songs/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string song)
+        public IEnumerable<Song> Put([FromBody] Song Song)
         {
+            songRepo.Update(Song);
+            return songRepo.GetAll();
         }
 
-        // DELETE api/values/5
+        // DELETE api/Songs/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Song> Delete(int id)
         {
+            var song = songRepo.GetById(id);
+            songRepo.Delete(song);
+            return songRepo.GetAll();
         }
     }
 }
