@@ -13,57 +13,51 @@ namespace ApiProject.Controllers
     [ApiController]
     public class ArtistController : ControllerBase
     {
-        //private static List<string> all = new List<string>()
-        //{
-        //    "Remodel Bathroom",
-        //    "Finish my laser app",
-        //    "Do things with kids"
-        //};
+  
+        private IRepository<Artist> artistRepo;
 
-        private IRepository<Artist> ArtistRepo;
-
-        public ArtistController(IRepository<Artist> ArtistRepo)
+        public ArtistController(IRepository<Artist> artistRepo)
         {
-            this.ArtistRepo = ArtistRepo;
+            this.artistRepo = artistRepo;
         }
 
         // GET api/Artists
         [HttpGet]
         public IEnumerable<Artist> Get()
         {
-            return ArtistRepo.GetAll();
+            return artistRepo.GetAll();
         }
 
         // GET api/Artists/5
         [HttpGet("{id}")]
         public Artist Get(int id)
         {
-            return ArtistRepo.GetById(id);
+            return artistRepo.GetById(id);
         }
 
         // POST api/Artists
         [HttpPost]
-        public IEnumerable<Artist> Post([FromBody] Artist Artist)
+        public IEnumerable<Artist> Post([FromBody] Artist artist)
         {
-            ArtistRepo.Create(Artist);
-            return ArtistRepo.GetAll();
+            artistRepo.Create(artist);
+            return artistRepo.GetAll();
         }
 
         // PUT api/Artists/5
         [HttpPut("{id}")]
-        public IEnumerable<Artist> Put([FromBody] Artist Artist)
+        public IEnumerable<Artist> Put([FromBody] Artist artist)
         {
-            ArtistRepo.Update(Artist);
-            return ArtistRepo.GetAll();
+            artistRepo.Update(artist);
+            return artistRepo.GetAll();
         }
 
         // DELETE api/Artists/5
         [HttpDelete("{id}")]
         public IEnumerable<Artist> Delete(int id)
         {
-            var Artist = ArtistRepo.GetById(id);
-            ArtistRepo.Delete(Artist);
-            return ArtistRepo.GetAll();
+            var artist = artistRepo.GetById(id);
+            artistRepo.Delete(artist);
+            return artistRepo.GetAll();
         }
     }
 }

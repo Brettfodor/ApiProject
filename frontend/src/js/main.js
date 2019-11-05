@@ -4,7 +4,7 @@ import Artists from "./component/Artists";
 import Artist from"./component/Artist";
 import ArtistProfile from "./component/artistProfile";
 import AlbumList from "./component/albumList";
-import ApiActions from "./API/apiActions";
+import apiActions from "./API/apiActions";
 import artists from "./component/Artists";
 
 export default () =>
@@ -56,14 +56,14 @@ function navArtists(){
     const artistsButton= document.querySelector(".nav__artists");
     const app = document.querySelector("#app");
     artistsButton.addEventListener("click", function(){
-        apiActions.getRequest("https://localhost:44305/api/artists", artists => {
+        apiActions.getRequest("https://localhost:44386/api/artists", artists => {
             document.querySelector("#app").innerHTML = Artists(artists);
         });
     });
     app.addEventListener('click', function(){
         if(event.target.classList.contains("add-artist__submit")){
             const artist = event.target.parentElement.querySelector(
-                ".add-artist__artistName"
+                ".add-artist__artistname"
             ).value;
             console.log(artist);
             apiActions.postRequest("https://localhost:44386/api/artists",
