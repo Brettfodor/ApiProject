@@ -40,5 +40,7 @@ function artistProfile(){
 }
 function albumList(){
     const albumList = document.getElementById("album-div");
-    albumList.innerHTML = AlbumList();
+    ApiActions.getRequest("https://localhost:44327/api/albums", albums => {
+      albumList.innerHTML = AlbumList(albums);
+    });
 }

@@ -1,26 +1,17 @@
-export default function AlbumList(albumList) {
+export default function AlbumList(albums) {
     return `
     <section id='album-list'>
-    
-    ${AlbumList
-        .map(albumList => {
+    ${albums
+        .map(album => {
             return `
             <article class="album">
             <li>
-                <h3>${albumList.name}</h3>
+                <h3>${album.name}</h3>
             </li>
             </article>
-   
-                `;
+            `;
         })
         .join("")}
-    
-   
-        
-            
-           
-        </section>  
-        
+    </section>  
     `
-
 }
