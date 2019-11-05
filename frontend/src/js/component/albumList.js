@@ -6,7 +6,7 @@ export default function AlbumList(albums) {
             return `
             <article class="album">
             <li>
-                <h3>${album.name}</h3>
+                <h3>${album.title}</h3>
             </li>
             </article>
             `;
