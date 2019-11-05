@@ -1,25 +1,27 @@
 export default function AlbumList(albumList) {
     return `
     <section id='album-list'>
-    
-    ${AlbumList
-        .map(albumList => {
+    <ul>
+    ${albumList
+        .map(album => {
             return `
             <article class="album">
             <li>
-                <h3>${albumList.name}</h3>
+                <h3>${album.name}</h3>
             </li>
             </article>
    
                 `;
         })
         .join("")}
+        </ul>
     
-   
-        
-            
-           
-        </section>  
+        <section class='add-album'>
+            <input class='add-album__albumName' type='text' placeholder='Add a album!'>
+            <button class='add-album__submit'>Submit</button>
+         </section>
+    </section>  
+
         
     `
 
