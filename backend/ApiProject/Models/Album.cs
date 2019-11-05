@@ -29,10 +29,5 @@ namespace ApiProject.Models
         public Album()
         {
         }
-
-
-        
-        
-
     }
 }

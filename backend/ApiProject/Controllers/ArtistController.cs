@@ -36,9 +36,9 @@ namespace ApiProject.Controllers
 
         // GET api/Artists/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Artist Get(int id)
         {
-            return "Artist";
+            return ArtistRepo.GetById(id);
         }
 
         // POST api/Artists
@@ -51,14 +51,19 @@ namespace ApiProject.Controllers
 
         // PUT api/Artists/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string Artist)
+        public IEnumerable<Artist> Put([FromBody] Artist Artist)
         {
+            ArtistRepo.Update(Artist);
+            return ArtistRepo.GetAll();
         }
 
         // DELETE api/Artists/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Artist> Delete(int id)
         {
+            var Artist = ArtistRepo.GetById(id);
+            ArtistRepo.Delete(Artist);
+            return ArtistRepo.GetAll();
         }
     }
 }
