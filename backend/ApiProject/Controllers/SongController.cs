@@ -36,9 +36,9 @@ namespace ApiProject.Controllers
 
         // GET api/Songs/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Song Get(int id)
         {
-            return "Song";
+            return songRepo.GetById(id);
         }
 
         // POST api/Songs
@@ -51,14 +51,19 @@ namespace ApiProject.Controllers
 
         // PUT api/Songs/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string Song)
+        public IEnumerable<Song> Put([FromBody] Song Song)
         {
+            songRepo.Update(Song);
+            return songRepo.GetAll();
         }
 
         // DELETE api/Songs/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Song> Delete(int id)
         {
+            var song = songRepo.GetById(id);
+            songRepo.Delete(song);
+            return songRepo.GetAll();
         }
     }
 }
