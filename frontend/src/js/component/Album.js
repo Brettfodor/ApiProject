@@ -7,6 +7,7 @@ export default function Album(album){
         <input class="update-album__name" value="${album.title}">
         <button class="update-album__submit">Save Changes</button>
         <input class="update-album__id" type="hidden" value="${album.id}">
+        <input class="update-album__artistId" type="hidden" value="1">
     </section>
     `
 }
