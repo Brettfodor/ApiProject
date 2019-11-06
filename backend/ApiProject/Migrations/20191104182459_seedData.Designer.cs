@@ -3,18 +3,20 @@ using ApiProject.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiProject.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20191104182459_seedData")]
+    partial class seedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -39,10 +41,8 @@ namespace ApiProject.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { ID = 1, ArtistID = 1, Image = "/images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
-                        new { ID = 2, ArtistID = 2, Image = "/images/blink182.jpg", Label = "label", Title = "Blink 182" },
-                        new { ID = 3, ArtistID = 3, Image = "/images/poison.jpg", Label = "label", Title = "The Poison" },
-                        new { ID = 4, ArtistID = 4, Image = "/images/fmc.png", Label = "label", Title = "Full Moon Fever" }
+                        new { ID = 1, ArtistID = 1, Image = "./images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
+                        new { ID = 2, ArtistID = 2, Image = "./images/blink182.jpg", Label = "label", Title = "Blink 182" }
                     );
                 });
 
@@ -61,10 +61,8 @@ namespace ApiProject.Migrations
                     b.ToTable("Artists");
 
                     b.HasData(
-                        new { ID = 1, Image = "/images/gucci-mane.jpg", Name = "Gucci Mane" },
-                        new { ID = 2, Image = "/images/gucci-mane.jpg", Name = "Blink 182" },
-                        new { ID = 3, Image = "/images/bfmv.jpg", Name = "Bullet For My Valentine" },
-                        new { ID = 4, Image = "/images/Tom.jpg", Name = "Tom Petty" }
+                        new { ID = 1, Image = "./images/gucci-mane.jpg", Name = "Gucci Mane" },
+                        new { ID = 2, Image = "./images/gucci-mane.jpg", Name = "Blink 182" }
                     );
                 });
 
@@ -117,32 +115,7 @@ namespace ApiProject.Migrations
                         new { ID = 26, AlbumID = 2, Link = "link", Time = "2:20", Title = "Easy Target" },
                         new { ID = 27, AlbumID = 2, Link = "link", Time = "4:40", Title = "All Of This" },
                         new { ID = 28, AlbumID = 2, Link = "link", Time = "4:55", Title = "Here's Your Letter" },
-                        new { ID = 29, AlbumID = 2, Link = "link", Time = "6:22", Title = "I'm Lost Without You" },
-                        new { ID = 30, AlbumID = 2, Link = "link", Time = "2:22", Title = "Intro" },
-                        new { ID = 31, AlbumID = 3, Link = "link", Time = "4:17", Title = "Her Voice Resides" },
-                        new { ID = 32, AlbumID = 3, Link = "link", Time = "3:43", Title = "4 Words" },
-                        new { ID = 33, AlbumID = 3, Link = "link", Time = "5:48", Title = "Tears Don't Fall" },
-                        new { ID = 34, AlbumID = 3, Link = "link", Time = "3:35", Title = "Suffocating Under Words of Sorrow" },
-                        new { ID = 35, AlbumID = 3, Link = "link", Time = "3:30", Title = "Hit The Floor" },
-                        new { ID = 36, AlbumID = 3, Link = "link", Time = "3:45", Title = "All these Things I Hate" },
-                        new { ID = 37, AlbumID = 3, Link = "link", Time = "4:01", Title = "Room 409" },
-                        new { ID = 38, AlbumID = 3, Link = "link", Time = "3:39", Title = "The Poison" },
-                        new { ID = 39, AlbumID = 3, Link = "link", Time = "3:55", Title = "10 Years Today" },
-                        new { ID = 40, AlbumID = 3, Link = "link", Time = "3:56", Title = "Cries in Vain" },
-                        new { ID = 41, AlbumID = 3, Link = "link", Time = "4:08", Title = "Spit You Out" },
-                        new { ID = 42, AlbumID = 3, Link = "link", Time = "6:48", Title = "The End" },
-                        new { ID = 43, AlbumID = 4, Link = "link", Time = "4:14", Title = "Free Fallin" },
-                        new { ID = 44, AlbumID = 4, Link = "link", Time = "2:56", Title = "I Won't Back Down" },
-                        new { ID = 45, AlbumID = 4, Link = "link", Time = "4:06", Title = "Love Is a Long Road" },
-                        new { ID = 46, AlbumID = 4, Link = "link", Time = "3:58", Title = "A Face In The Crowd" },
-                        new { ID = 47, AlbumID = 4, Link = "link", Time = "4:23", Title = "Runnin' Down a Dream" },
-                        new { ID = 48, AlbumID = 4, Link = "link", Time = "2:47", Title = "I'll Feel a Whole Lot Better" },
-                        new { ID = 49, AlbumID = 4, Link = "link", Time = "3:05", Title = "Yer So Bad" },
-                        new { ID = 50, AlbumID = 4, Link = "link", Time = "2:47", Title = "Depending On You" },
-                        new { ID = 51, AlbumID = 4, Link = "link", Time = "2:31", Title = "The Apartment Song" },
-                        new { ID = 52, AlbumID = 4, Link = "link", Time = "2:00", Title = "Alright For Now" },
-                        new { ID = 53, AlbumID = 4, Link = "link", Time = "3:29", Title = "A Mind with a Heart of Its Own" },
-                        new { ID = 54, AlbumID = 4, Link = "link", Time = "2:56", Title = "Zombie Zoo" }
+                        new { ID = 29, AlbumID = 2, Link = "link", Time = "6:22", Title = "I'm Lost Without You" }
                     );
                 });
 

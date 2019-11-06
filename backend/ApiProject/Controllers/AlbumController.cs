@@ -2,45 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiProject.Models;
+using ApiProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiProject.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/albums")]
     [ApiController]
     public class AlbumController : ControllerBase
     {
-        // GET api/values
+
+        private IRepository<Album> albumRepo;
+
+        public AlbumController(IRepository<Album> albumRepo)
+        {
+            this.albumRepo = albumRepo;
+        }
+
+        // GET api/Albums
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Album> Get()
         {
-            return new string[] { "album1", "album2" };
+            return albumRepo.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/Albums/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Album Get(int id)
         {
-            return "album";
+            return albumRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST api/Albums
         [HttpPost]
-        public void Post([FromBody] string album)
+        public IEnumerable<Album> Post([FromBody] Album album)
         {
+            albumRepo.Create(album);
+            return albumRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Albums/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string album)
+        public IEnumerable<Album> Put([FromBody] Album album)
         {
+            albumRepo.Update(album);
+            return albumRepo.GetAll();
         }
 
-        // DELETE api/values/5
+        // DELETE api/Albums/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Album> Delete(int id)
         {
+            var album = albumRepo.GetById(id);
+            albumRepo.Delete(album);
+            return albumRepo.GetAll();
         }
     }
 }
