@@ -124,7 +124,7 @@ function navArtists(){
 
 }
     function navAlbums(){
-        const albumsButton= document.querySelector(".nav__albums");
+        const albumsButton = document.querySelector(".nav__albums");
         const app = document.querySelector("#app");
         albumsButton.addEventListener("click", function(){
             apiActions.getRequest("https://localhost:44386/api/albums", albums => {
@@ -201,10 +201,14 @@ function navArtists(){
                     const song = event.target.parentElement.querySelector(
                         ".add-song__songtitle"
                     ).value;
+                    const albumId = event.target.parentElement.querySelector(
+                        ".add-song__albumId"
+                    ).value;
                     console.log(song);
                     apiActions.postRequest("https://localhost:44386/api/songs",
                     {
-                        name: song
+                        name: song,
+                        albumId: albumId
                     },
                     songs => {
                         console.log(songs);

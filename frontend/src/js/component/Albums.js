@@ -23,7 +23,8 @@ export default function Albums(albums) {
               .map(album => {
                 return `
                     <li>
-                        <h3>${album.name}</h3>
+                        <h3>${album.title}</h3>
+                        <img src=${album.image}></img>
                         <input class="album__id" type="hidden" value="${album.id}">
                         <button class="edit-album__submit" >Edit</button>
                         <button class="delete-album__submit">Delete</button>
