@@ -128,7 +128,7 @@ function navArtists(){
         const app = document.querySelector("#app");
         albumsButton.addEventListener("click", function(){
             apiActions.getRequest("https://localhost:44386/api/albums", albums => {
-                document.querySelector("#app").innerHTML = Albums(albums);
+                app.innerHTML = Albums(albums);
             });
         });
         app.addEventListener('click', function(){
