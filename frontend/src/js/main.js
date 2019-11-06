@@ -126,9 +126,13 @@ function navArtists(){
     function navAlbums(){
         const albumsButton = document.querySelector(".nav__albums");
         const app = document.querySelector("#app");
+        const albumForm = document.getElementById("album-form")
         albumsButton.addEventListener("click", function(){
             apiActions.getRequest("https://localhost:44386/api/albums", albums => {
                 app.innerHTML = Albums(albums);
+            });
+            apiActions.getRequest("https://localhost:44386/api/artists", artists => {
+                albumForm.innerHTML = AlbumForm(artists);
             });
         });
         app.addEventListener('click', function(){
