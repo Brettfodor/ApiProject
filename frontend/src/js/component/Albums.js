@@ -1,20 +1,3 @@
-// export default function AlbumList(albums) {
-//     return `
-//     <section id='album-list'>
-//     ${albums
-//         .map(album => {
-//             return `
-//             <article class="album">
-//             <li>
-//                 <h3>${album.title}</h3>
-//             </li>
-//             </article>
-//             `;
-//         })
-//         .join("")}
-//     </section>  
-//     `
-
 
 export default function Albums(albums) {
     return `
@@ -34,9 +17,9 @@ export default function Albums(albums) {
               .join("")}
          </ul>
          <section class="add-album">
-            // <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
-            // <input class="add-album__artistId" type="hidden" value="1">
-            <button class="add-Album__Add">Click Here To Add Album!</button>
+        <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
+        <input class="add-album__artistId" type="hidden" value="1">
+        <button class="add-Album__Add">Click Here To Add Album!</button>
         </section>
     `
 }

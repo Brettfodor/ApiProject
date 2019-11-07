@@ -3,6 +3,7 @@ import Footer from "./component/footer";
 import Artists from "./component/Artists";
 import Artist from"./component/Artist";
 import ArtistProfile from "./component/artistProfile";
+import AddAlbum from "./component/AddAlbum"
 import Albums from "./component/Albums";
 import Album from "./component/Album";
 import apiActions from "./API/apiActions";
@@ -145,25 +146,6 @@ function navArtists(){
                     app.innerHTML = AddAlbum(artist);
                  });
 
-
-        app.addEventListener('click', function(){
-            if(event.target.classList.contains("add-album__submit")){
-                const album = event.target.parentElement.querySelector(
-                    ".add-album__albumtitle"
-                ).value;
-                const artistId = event.target.parentElement.querySelector(
-                    ".add-album__artistId"
-                ).value;
-                console.log(album);
-                apiActions.postRequest("https://localhost:44386/api/albums",
-                {
-                    title: album,
-                    artistId: artistId
-                },
-                albums => {
-                    console.log(albums);
-                    app.innerHTML = Albums(albums);
-                 });
             }
         });
         app.addEventListener("click", function(){
@@ -285,4 +267,4 @@ function navArtists(){
     
         }
         
-    
+   
