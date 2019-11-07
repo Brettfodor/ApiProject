@@ -34,9 +34,9 @@ export default function Albums(albums) {
               .join("")}
          </ul>
          <section class="add-album">
-            <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
-            <input class="add-album__artistId" type="hidden" value="1">
-            <button class="add-album__submit">Submit</button>
+            // <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
+            // <input class="add-album__artistId" type="hidden" value="1">
+            <button class="add-Album__Add">Click Here To Add Album!</button>
         </section>
     `
 }

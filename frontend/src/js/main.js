@@ -131,6 +131,21 @@ function navArtists(){
                 app.innerHTML = Albums(albums);
             });
         });
+
+        app.addEventListener('click', function(){
+            if(event.target.classList.contains("add-album__Add")){
+                const addAlbum = event.target.parentElement.querySelector(
+                    ".add-album__Add"
+                ).value;
+                console.log(addAlbum);
+                apiActions.getRequest("https://localhost:44386/api/artists",
+           
+                artist => {
+                    console.log(artist);
+                    app.innerHTML = AddAlbum(artist);
+                 });
+
+
         app.addEventListener('click', function(){
             if(event.target.classList.contains("add-album__submit")){
                 const album = event.target.parentElement.querySelector(
@@ -214,7 +229,7 @@ function navArtists(){
                     console.log(song);
                     apiActions.postRequest("https://localhost:44386/api/songs",
                     {
-                        name: song,
+                        title: song,
                         albumId: albumId
                     },
                     songs => {
@@ -251,9 +266,13 @@ function navArtists(){
                     ).value;
                     const songTitle = event.target.parentElement.querySelector(".update-song__name"
                     ).value;
+                    const albumId = event.target.parentElement.querySelector(".update-album__artistId"
+                    ).value;
+    
                     const songData = {
                         id: songID,
-                        name: songTitle
+                        title: songTitle,
+                        albumId: albumId
                     }
                     apiActions.putRequest(`https://localhost:44386/api/songs/${songID}`,
                     songData,
@@ -265,5 +284,5 @@ function navArtists(){
             });
     
         }
+        
     
-
