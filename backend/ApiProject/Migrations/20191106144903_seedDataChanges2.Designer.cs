@@ -3,14 +3,16 @@ using ApiProject.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiProject.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20191106144903_seedDataChanges2")]
+    partial class seedDataChanges2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,10 +41,10 @@ namespace ApiProject.Migrations
                     b.ToTable("Albums");
 
                     b.HasData(
-                        new { ID = 1, ArtistID = 1, Image = "./css/images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
-                        new { ID = 2, ArtistID = 2, Image = "./css/images/blink182.jpg", Label = "label", Title = "Blink 182" },
-                        new { ID = 3, ArtistID = 3, Image = "./css/images/poison.jpg", Label = "label", Title = "The Poison" },
-                        new { ID = 4, ArtistID = 4, Image = "./css/images/fmc.png", Label = "label", Title = "Full Moon Fever" }
+                        new { ID = 1, ArtistID = 1, Image = "/images/east-atlanta-santa.png", Label = "label", Title = "East Atlanta Santa" },
+                        new { ID = 2, ArtistID = 2, Image = "/images/blink182.jpg", Label = "label", Title = "Blink 182" },
+                        new { ID = 3, ArtistID = 3, Image = "/images/poison.jpg", Label = "label", Title = "The Poison" },
+                        new { ID = 4, ArtistID = 4, Image = "/images/fmc.png", Label = "label", Title = "Full Moon Fever" }
                     );
                 });
 
@@ -62,7 +64,7 @@ namespace ApiProject.Migrations
 
                     b.HasData(
                         new { ID = 1, Image = "./css/images/gucci-mane.jpg", Name = "Gucci Mane" },
-                        new { ID = 2, Image = "./css/images/blink182.jpg", Name = "Blink 182" },
+                        new { ID = 2, Image = "./css/images/gucci-mane.jpg", Name = "Blink 182" },
                         new { ID = 3, Image = "./css/images/bfmv.jpg", Name = "Bullet For My Valentine" },
                         new { ID = 4, Image = "./css/images/Tom.jpg", Name = "Tom Petty" }
                     );

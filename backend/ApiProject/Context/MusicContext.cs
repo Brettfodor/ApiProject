@@ -24,10 +24,10 @@ namespace ApiProject.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Album>().HasData(
-                    new Album(1, "East Atlanta Santa", "/images/east-atlanta-santa.png", "label", 1),
-                    new Album(2, "Blink 182", "/images/blink182.jpg", "label",2),
-                    new Album(3, "The Poison", "/images/poison.jpg", "label",3),
-                    new Album(4, "Full Moon Fever", "/images/fmc.png", "label",4)
+                    new Album(1, "East Atlanta Santa", "./css/images/east-atlanta-santa.png", "label", 1),
+                    new Album(2, "Blink 182", "./css/images/blink182.jpg", "label",2),
+                    new Album(3, "The Poison", "./css/images/poison.jpg", "label",3),
+                    new Album(4, "Full Moon Fever", "./css/images/fmc.png", "label",4)
                 );
 
             modelBuilder.Entity<Song>().HasData(
@@ -95,10 +95,10 @@ namespace ApiProject.Context
                     );
 
             modelBuilder.Entity<Artist>().HasData(
-                    new Artist(1, "Gucci Mane", "/images/gucci-mane.jpg"),
-                    new Artist(2, "Blink 182", "/images/gucci-mane.jpg"),
-                    new Artist(3, "Bullet For My Valentine", "/images/bfmv.jpg"),
-                    new Artist(4, "Tom Petty", "/images/Tom.jpg")
+                    new Artist(1, "Gucci Mane", "./css/images/gucci-mane.jpg"),
+                    new Artist(2, "Blink 182", "./css/images/blink182.jpg"),
+                    new Artist(3, "Bullet For My Valentine", "./css/images/bfmv.jpg"),
+                    new Artist(4, "Tom Petty", "./css/images/Tom.jpg")
                     );
             base.OnModelCreating(modelBuilder);
         }
