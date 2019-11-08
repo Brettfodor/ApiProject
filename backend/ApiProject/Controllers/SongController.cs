@@ -38,7 +38,15 @@ namespace ApiProject.Controllers
         [HttpGet("{id}")]
         public Song Get(int id)
         {
-            return songRepo.GetByArtistId(id);
+            return songRepo.GetById(id);
+        }
+
+        [HttpGet("{id}")]
+        public IEnumerable<Song> GetByAlbum(int id)
+
+        {
+            SongRepository songRepoFix = songRepo as SongRepository;
+            return songRepoFix.GetByAlbumID(id);
         }
 
         // POST api/Songs
@@ -61,7 +69,7 @@ namespace ApiProject.Controllers
         [HttpDelete("{id}")]
         public IEnumerable<Song> Delete(int id)
         {
-            var song = songRepo.GetByArtistId(id);
+            var song = songRepo.GetById(id);
             songRepo.Delete(song);
             return songRepo.GetAll();
         }

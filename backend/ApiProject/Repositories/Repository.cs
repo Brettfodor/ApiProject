@@ -27,7 +27,7 @@ namespace ApiProject.Repositories
             db.SaveChanges();
         }
 
-        public T GetByArtistId(int id)
+        public T GetById(int id)
         {
             return db.Set<T>().Find(id);
         }

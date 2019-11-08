@@ -37,10 +37,10 @@ namespace ApiProject.Controllers
 
         // GET by ArtistId
         [HttpGet("{id}")]
-        public Album GetByArtist(int id)
+        public IEnumerable<Album> GetByArtist(int id)
         {
             AlbumRepository albumRepoFix = albumRepo as AlbumRepository;
-            return albumRepoFix.GetByArtistId(id);
+            return albumRepoFix.GetByArtistID(id);
         }
 
         // POST api/Albums

@@ -15,7 +15,7 @@ namespace ApiProject.Repositories
 
         }
 
-        public IEnumerable<Album> GetByProductID(int artistID)
+        public IEnumerable<Album> GetByArtistID(int artistID)
         {
             var albums = db.Albums.Where(p => p.ArtistID == artistID);
             return albums;
