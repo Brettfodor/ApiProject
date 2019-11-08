@@ -28,13 +28,3 @@ export default function Albums(albums) {
         </section>
     `
 }
-{/* <section class='add-album'>
-    <input class='add-album_albumTitle' type='text' placeholder='Add A New Album!'>
-    <select class= 'add-album__artistId' name="Artist">
-    <option value="1">Gucci Mane</option>
-    <option value="2">Blink 182</option>
-    <option value="3">Bullet Valentine</option>
-    <option value="4">Tom Petty</option>
-    </select>
-    <button class='add-album__submit'>Submit</button>
-</section> */}

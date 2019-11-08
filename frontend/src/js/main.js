@@ -247,7 +247,7 @@ function navArtists(){
                     ).value;
                     const songTitle = event.target.parentElement.querySelector(".update-song__name"
                     ).value;
-                    const albumId = event.target.parentElement.querySelector(".update-album__artistId"
+                    const albumId = event.target.parentElement.querySelector(".update-song__albumId"
                     ).value;
     
                     const songData = {
