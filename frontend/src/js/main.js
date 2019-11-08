@@ -2,7 +2,7 @@ import Header from "./component/header";
 import Footer from "./component/footer";
 import Artists from "./component/Artists";
 import Artist from"./component/Artist";
-import ArtistProfile from "./component/artistProfile";
+import AddAlbum from "./component/AddAlbum"
 import Albums from "./component/Albums";
 import Album from "./component/Album";
 import apiActions from "./API/apiActions";
@@ -15,10 +15,6 @@ export default () =>
     Pagebuild();
 };
 
-// function Artistbuild(){
-//     artistProfile();
-//     albumList();
-// }
 function Pagebuild(){
     header();
     navArtists();
@@ -131,21 +127,6 @@ function navArtists(){
                 app.innerHTML = Albums(albums);
             });
         });
-
-        app.addEventListener('click', function(){
-            if(event.target.classList.contains("add-album__Add")){
-                const addAlbum = event.target.parentElement.querySelector(
-                    ".add-album__Add"
-                ).value;
-                console.log(addAlbum);
-                apiActions.getRequest("https://localhost:44386/api/artists",
-           
-                artist => {
-                    console.log(artist);
-                    app.innerHTML = AddAlbum(artist);
-                 });
-
-
         app.addEventListener('click', function(){
             if(event.target.classList.contains("add-album__submit")){
                 const album = event.target.parentElement.querySelector(
@@ -285,4 +266,4 @@ function navArtists(){
     
         }
         
-    
+   
