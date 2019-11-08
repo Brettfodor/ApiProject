@@ -18,8 +18,23 @@ export default function Albums(albums) {
          </ul>
          <section class="add-album">
         <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
-        <input class="add-album__artistId" type="hidden" value="1">
-        <button class="add-Album__Add">Click Here To Add Album!</button>
+        <select class= 'add-album__artistId' name="Artist">
+        <option value="1">Gucci Mane</option>
+        <option value="2">Blink 182</option>
+        <option value="3">Bullet Valentine</option>
+        <option value="4">Tom Petty</option>
+        </select>
+        <button class="add-album__submit">Click Here To Add Album!</button>
         </section>
     `
 }
+{/* <section class='add-album'>
+    <input class='add-album_albumTitle' type='text' placeholder='Add A New Album!'>
+    <select class= 'add-album__artistId' name="Artist">
+    <option value="1">Gucci Mane</option>
+    <option value="2">Blink 182</option>
+    <option value="3">Bullet Valentine</option>
+    <option value="4">Tom Petty</option>
+    </select>
+    <button class='add-album__submit'>Submit</button>
+</section> */}

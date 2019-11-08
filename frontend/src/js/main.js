@@ -15,10 +15,6 @@ export default () =>
     Pagebuild();
 };
 
-// function Artistbuild(){
-//     artistProfile();
-//     albumList();
-// }
 function Pagebuild(){
     header();
     navArtists();
@@ -82,26 +78,6 @@ function navArtists(){
              });
         }
     });
-    app.addEventListener('click', function(){
-        if(event.target.classList.contains("add-album__submit")){
-            const album = event.target.parentElement.querySelector(
-                ".add-album__albumtitle"
-            ).value;
-            const artistId = event.target.parentElement.querySelector(
-                ".add-album__artistId"
-            ).value;
-            console.log(album);
-            apiActions.postRequest("https://localhost:44386/api/albums",
-            {
-                title: album,
-                artistId: artistId
-            },
-            albums => {
-                console.log(albums);
-                app.innerHTML = Albums(albums);
-             });
-        }
-    });
     app.addEventListener("click", function(){
         if(event.target.classList.contains("delete-artist__submit")){
             const artistID = event.target.parentElement.querySelector(".artist__id").value;
@@ -151,20 +127,24 @@ function navArtists(){
                 app.innerHTML = Albums(albums);
             });
         });
-
         app.addEventListener('click', function(){
-            if(event.target.classList.contains("add-album__Add")){
-                const addAlbum = event.target.parentElement.querySelector(
-                    ".add-album__Add"
+            if(event.target.classList.contains("add-album__submit")){
+                const album = event.target.parentElement.querySelector(
+                    ".add-album__albumtitle"
                 ).value;
-                console.log(addAlbum);
-                apiActions.getRequest("https://localhost:44386/api/artists",
-           
-                artist => {
-                    console.log(artist);
-                    app.innerHTML = AddAlbum(artist);
+                const artistId = event.target.parentElement.querySelector(
+                    ".add-album__artistId"
+                ).value;
+                console.log(album);
+                apiActions.postRequest("https://localhost:44386/api/albums",
+                {
+                    title: album,
+                    artistId: artistId
+                },
+                albums => {
+                    console.log(albums);
+                    app.innerHTML = Albums(albums);
                  });
-
             }
         });
         app.addEventListener("click", function(){

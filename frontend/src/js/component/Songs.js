@@ -17,7 +17,12 @@ export default function Songs(songs) {
          </ul>
          <section class="add-song">
             <input class="add-song__songtitle" type="text" placeholder="Add a song!">
-            <input class="add-song__albumId" type="hidden" value="1">
+            <select class= 'add-song__albumId' name="Album">
+            <option value="1">East Atlanta Santa</option>
+            <option value="2">Blink 182</option>
+            <option value="3">The Poison</option>
+            <option value="4">Full Moon Fever</option>
+                </select>
             <button class="add-song__submit">Submit</button>
         </section>
     `
