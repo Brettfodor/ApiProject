@@ -25,7 +25,8 @@ namespace ApiProject.Controllers
         [HttpGet]
         public IEnumerable<Artist> Get()
         {
-            return artistRepo.GetAll();
+            //return artistRepo.GetAll();
+            return new List<Artist>();
         }
 
         // GET api/Artists/5
