@@ -9,9 +9,16 @@ namespace ApiProject.Repositories
 {
     public class AlbumRepository : Repository<Album>, IRepository<Album>
     {
+        private MusicContext db;
         public AlbumRepository(MusicContext context) : base(context)
         {
 
+        }
+
+        public IEnumerable<Album> GetByArtistID(int artistID)
+        {
+            var albums = db.Albums.Where(p => p.ArtistID == artistID);
+            return albums;
         }
     }
 }
