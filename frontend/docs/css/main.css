@@ -3,13 +3,7 @@
     margin: 0;
     padding: 0;
   }
-  #app {
-    /*display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: white;
-    height: 100vh;*/
-  }
+
   footer, .nav__header
   {
     padding: 1rem;
@@ -18,41 +12,47 @@
     justify-content: space-evenly;
     background-color: deepskyblue;
   }
-  /* #artist-list, #artist-profile
-  {
-    display: block;
-    margin: 1rem;
-    background-color: dimgray;
-    border-radius: 1rem;
-  } 
-  #artist-profile
-  {
-    width: 60%;
-  }
-  #artist-list
-  {
-    width: 30%;
-  } */
-  ul
+img{
+  width: 200px;
+  height: 200px;
+}
+  /* ul
   {
     display: flex;
     flex-direction: column;
-  }
-  li
+  } */
+  /* li
   {
     display: flex;
     justify-content: center;
     background-color: dimgray;
-    width: 85%;
+    width: 100%;
     padding: 1rem;
     margin: 0.5rem;
     border-radius: 1rem;
+  } */
+.objectGrid{
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* grid-gap: 1rem; */
+
+}
+.objectItem {
+  justify-content: center;
+  background-color: dimgray;
+  padding: .25rem;
+  margin: 0.5rem;
+  border-radius: 1rem;
+
+}
+
+  /* h3
+  { */
+    /* display: grid; */
+    /* justify-content: center;
   }
-  h3
-  {
-    display: flex;
-    justify-content: center;
-  }
+   */
   .add-album, .add-artist, .add-song
   {
     background-color: dimgray;

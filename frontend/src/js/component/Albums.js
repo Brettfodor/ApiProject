@@ -1,23 +1,24 @@
 
 export default function Albums(albums) {
     return `
-    <ul>
+    <div class= 'objectGrid'>
             ${albums
               .map(album => {
                 return `
-                    <li>
-                        <h3>${album.title}</h3>
+                    <div class= 'objectItem'>
                         <img src=${album.image}></img>
+                        <h3>${album.title}</h3>
                         <input class="album__id" type="hidden" value="${album.id}">
                         <button class="edit-album__submit" >Edit</button>
                         <button class="delete-album__submit">Delete</button>
-                    </li>
+                    </div>
                 `;
               })
               .join("")}
-         </ul>
+         </div>
          <section class="add-album">
         <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
+        <input class="add-album__albumimg" type="hidden" value="./css/images/genericAlbum.jpg">
         <select class= 'add-album__artistId' name="Artist">
         <option value="1">Gucci Mane</option>
         <option value="2">Blink 182</option>

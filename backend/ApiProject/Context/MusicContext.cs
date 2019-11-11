@@ -24,7 +24,7 @@ namespace ApiProject.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Album>().HasData(
-                    new Album(1, "East Atlanta Santa", "./css/images/east-atlanta-santa.png", "label", 1),
+                    new Album(1, "East Atlanta Santa", "./css/images/east-atlanta-santa.jpg", "label", 1),
                     new Album(2, "Blink 182", "./css/images/blink182.jpg", "label",2),
                     new Album(3, "The Poison", "./css/images/poison.jpg", "label",3),
                     new Album(4, "Full Moon Fever", "./css/images/fmc.png", "label",4)

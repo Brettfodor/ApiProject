@@ -67,10 +67,14 @@ function navArtists(){
             const artist = event.target.parentElement.querySelector(
                 ".add-artist__artistname"
             ).value;
+            const image = event.target.parentElement.querySelector(
+                ".add-artist__artistimg"
+            ).value;
             console.log(artist);
             apiActions.postRequest("https://localhost:44386/api/artists",
             {
-                name: artist
+                name: artist,
+                image: image
             },
             artists => {
                 console.log(artists);
@@ -131,6 +135,9 @@ function navArtists(){
                 const album = event.target.parentElement.querySelector(
                     ".add-album__albumtitle"
                 ).value;
+                const image = event.target.parentElement.querySelector(
+                    ".add-album__albumimg"
+                ).value;
                 const artistId = event.target.parentElement.querySelector(
                     ".add-album__artistId"
                 ).value;
@@ -138,6 +145,7 @@ function navArtists(){
                 apiActions.postRequest("https://localhost:44386/api/albums",
                 {
                     title: album,
+                    image: image,
                     artistId: artistId
                 },
                 albums => {
