@@ -117,7 +117,6 @@ function navArtists(){
             );
         }
     });
-
 }
     function navAlbums(){
         const albumsButton = document.querySelector(".nav__albums");
@@ -227,6 +226,7 @@ function navArtists(){
                     songs => {
                         app.innerHTML = Songs(songs);
                     })
+                    
                 }
             });
             app.addEventListener("click", function(){
