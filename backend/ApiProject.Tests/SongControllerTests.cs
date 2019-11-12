@@ -70,8 +70,8 @@ namespace ApiProject.Tests
 
             var result = underTest.Delete(songId);
 
-            // Assert.DoesNotContain(deletedTodo, result); Does not work in all cases
-            Assert.All(result, item => Assert.Contains("Second item", item.Title));
+            Assert.DoesNotContain(deletedSong, result); /*Does not work in all cases*/
+            //Assert.All(result, item => Assert.Contains("Second item", item.Title));
         }
 
         [Fact]
