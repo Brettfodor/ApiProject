@@ -39,12 +39,12 @@ namespace ApiProject.Tests
         public void Post_Creates_New_Artist()
         {
             var newArtist = new Artist(1, "Name", "image");
-            var todoList = new List<Artist>();
+            var artistList = new List<Artist>();
 
             artistRepo.When(t => t.Create(newArtist))
-                .Do(t => todoList.Add(newArtist));
+                .Do(t => artistList.Add(newArtist));
 
-            artistRepo.GetAll().Returns(todoList);
+            artistRepo.GetAll().Returns(artistList);
 
             var result = underTest.Post(newArtist);
 
