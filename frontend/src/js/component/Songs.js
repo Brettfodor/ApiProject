@@ -17,6 +17,7 @@ export default function Songs(songs) {
               })
               .join("")}
          </div>
+
          <section class="add-song">
             <input class="add-song__songtitle" type="text" placeholder="Add a song!">
             <input class="add-song__songimage" type="hidden" value="./css/images/genericsong.jpg">
@@ -28,5 +29,6 @@ export default function Songs(songs) {
                 </select>
             <button class="add-song__submit">Submit</button>
         </section>
+
     `
 }

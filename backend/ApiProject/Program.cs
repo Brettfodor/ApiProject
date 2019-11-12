@@ -10,7 +10,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ApiProject
 {
-    public class Program
+    public class 
+        Program
     {
         public static void Main(string[] args)
         {

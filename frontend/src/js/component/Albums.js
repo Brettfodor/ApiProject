@@ -16,6 +16,7 @@ export default function Albums(albums) {
               })
               .join("")}
          </div>
+      
          <section class="add-album">
         <input class="add-album__albumtitle" type="text" placeholder="Add an album!">
         <input class="add-album__albumimg" type="hidden" value="./css/images/genericAlbum.jpg">
@@ -27,5 +28,6 @@ export default function Albums(albums) {
         </select>
         <button class="add-album__submit">Click Here To Add Album!</button>
         </section>
+       
     `
 }

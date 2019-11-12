@@ -16,10 +16,12 @@ export default function Artists(artists) {
               })
               .join("")}
          </div>
+        
          <section class='add-artist'>
             <input class='add-artist__artistname' type='text' placeholder='Add an artist!'>
             <input class='add-artist__artistimg' type='hidden' value='./css/images/genericArtist.jpg'>
             <button class='add-artist__submit'>Submit</button>
         </section>
+  
     `
 }
