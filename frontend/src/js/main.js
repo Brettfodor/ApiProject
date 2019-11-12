@@ -53,6 +53,7 @@ function navHome(){
     }
 
 function navArtists(){
+    const artistImage= document.querySelector(".artist__image");
     const artistsButton= document.querySelector(".nav__artists");
     const app = document.querySelector("#app");
     artistsButton.addEventListener("click", function(){
@@ -60,6 +61,19 @@ function navArtists(){
             document.querySelector("#app").innerHTML = Artists(artists);
         });
     });
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("artist__image")){
+            const artistID = event.target.parentElement.querySelector(".artist__id").value;
+            console.log(artistID);
+            apiActions.getRequest(`https://localhost:44386/api/artists/${artistID}`,
+                artist => {
+                    console.log(artist.albums)
+
+                app.innerHTML= Albums(artist.albums);
+            })
+        }
+    });
+
     app.addEventListener('click', function(){
         if(event.target.classList.contains("add-artist__submit")){
             const artist = event.target.parentElement.querySelector(
