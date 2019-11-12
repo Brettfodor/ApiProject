@@ -17,11 +17,10 @@ export default () =>
 
 function Pagebuild(){
     header();
+    navHome();
     navArtists();
     navAlbums();
     navSongs();
-    // Artists();
-    // albumList();
     footer();
 };
 
@@ -48,11 +47,10 @@ function footer(){
 //     });
 // }
 function navHome(){
-    const homeButton = document.querySelector(".nav__home")
-    homeButton.addEventListener('click', function(){
-        document.querySelector("#app").innerHTML = Home()
-    });
-}
+    apiActions.getRequest("https://localhost:44386/api/artists", artists => {
+     document.querySelector("#app").innerHTML = Artists(artists);
+        });
+    }
 
 function navArtists(){
     const artistsButton= document.querySelector(".nav__artists");

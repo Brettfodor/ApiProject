@@ -2,7 +2,20 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+
+}
+
+#app{
+  min-height: 90%;
+}
+body {
+  background-image: url("./images/Scooter.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  color: rgb(24, 23, 23);
+}
 
   footer, .nav__header
   {
