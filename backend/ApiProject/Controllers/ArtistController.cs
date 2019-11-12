@@ -26,6 +26,7 @@ namespace ApiProject.Controllers
         public IEnumerable<Artist> Get()
         {
             return artistRepo.GetAll();
+            //return new List<Artist>();
         }
 
         // GET api/Artists/5

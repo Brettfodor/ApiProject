@@ -2,14 +2,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  #app {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: white;
-    height: 100vh;
-  }
+
+}
+
+#app{
+  min-height: 90%;
+}
+body {
+  background-image: url("./images/Scooter.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  color: rgb(24, 23, 23);
+}
+
   footer, .nav__header
   {
     padding: 1rem;
@@ -18,20 +25,45 @@
     justify-content: space-evenly;
     background-color: deepskyblue;
   }
-  #artist-list, #artist-profile
+img{
+  width: 200px;
+  height: 200px;
+}
+
+.objectGrid{
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  justify-items: center;
+  /* grid-gap: 1rem; */
+
+}
+.objectItem {
+  display: grid;
+  justify-items: center;
+  max-width:  220px;
+  max-block-size: auto;
+  background-color: dimgray;
+  
+  padding: 10px;
+  margin: 2px;
+  border-radius: 2rem;
+
+
+}
+
+  /* h3
+  { */
+    /* display: grid; */
+    /* justify-content: center;
+  }
+   */
+  .add-album, .add-artist, .add-song
   {
-    display: block;
-    margin: 1rem;
     background-color: dimgray;
+    padding: 1rem;
+    margin: 0.5rem;
     border-radius: 1rem;
   }
-  #artist-profile
-  {
-    width: 60%;
-  }
-  #artist-list
-  {
-    width: 30%;
-  }
-
   

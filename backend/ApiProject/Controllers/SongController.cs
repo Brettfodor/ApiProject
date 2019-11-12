@@ -41,6 +41,14 @@ namespace ApiProject.Controllers
             return songRepo.GetById(id);
         }
 
+        [HttpGet("{id}")]
+        public IEnumerable<Song> GetByAlbum(int id)
+
+        {
+            SongRepository songRepoFix = songRepo as SongRepository;
+            return songRepoFix.GetByAlbumID(id);
+        }
+
         // POST api/Songs
         [HttpPost]
         public IEnumerable<Song> Post([FromBody] Song song)

@@ -2,7 +2,7 @@ import Header from "./component/header";
 import Footer from "./component/footer";
 import Artists from "./component/Artists";
 import Artist from"./component/Artist";
-import ArtistProfile from "./component/artistProfile";
+import AddAlbum from "./component/AddAlbum"
 import Albums from "./component/Albums";
 import Album from "./component/Album";
 import apiActions from "./API/apiActions";
@@ -15,17 +15,12 @@ export default () =>
     Pagebuild();
 };
 
-// function Artistbuild(){
-//     artistProfile();
-//     albumList();
-// }
 function Pagebuild(){
     header();
+    navHome();
     navArtists();
     navAlbums();
     navSongs();
-    // Artists();
-    // albumList();
     footer();
 };
 
@@ -52,11 +47,10 @@ function footer(){
 //     });
 // }
 function navHome(){
-    const homeButton = document.querySelector(".nav__home")
-    homeButton.addEventListener('click', function(){
-        document.querySelector("#app").innerHTML = Home()
-    });
-}
+    apiActions.getRequest("https://localhost:44386/api/artists", artists => {
+     document.querySelector("#app").innerHTML = Artists(artists);
+        });
+    }
 
 function navArtists(){
     const artistsButton= document.querySelector(".nav__artists");
@@ -66,15 +60,32 @@ function navArtists(){
             document.querySelector("#app").innerHTML = Artists(artists);
         });
     });
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("artist__image")){
+            const artistID = event.target.parentElement.querySelector(".artist__id").value;
+            console.log(artistID);
+            apiActions.getRequest(`https://localhost:44386/api/artists/${artistID}`,
+                artist => {
+                    console.log(artist.albums)
+
+                app.innerHTML= Albums(artist.albums);
+            })
+        }
+    });
+
     app.addEventListener('click', function(){
         if(event.target.classList.contains("add-artist__submit")){
             const artist = event.target.parentElement.querySelector(
                 ".add-artist__artistname"
             ).value;
+            const image = event.target.parentElement.querySelector(
+                ".add-artist__artistimg"
+            ).value;
             console.log(artist);
             apiActions.postRequest("https://localhost:44386/api/artists",
             {
-                name: artist
+                name: artist,
+                image: image
             },
             artists => {
                 console.log(artists);
@@ -121,25 +132,46 @@ function navArtists(){
             );
         }
     });
-
 }
     function navAlbums(){
         const albumsButton = document.querySelector(".nav__albums");
         const app = document.querySelector("#app");
         albumsButton.addEventListener("click", function(){
             apiActions.getRequest("https://localhost:44386/api/albums", albums => {
-                document.querySelector("#app").innerHTML = Albums(albums);
+                app.innerHTML = Albums(albums);
             });
         });
+
+        app.addEventListener("click", function(){
+            if(event.target.classList.contains("album__image")){
+                const albumID = event.target.parentElement.querySelector(".album__id").value;
+                console.log(albumID);
+                apiActions.getRequest(`https://localhost:44386/api/albums/${albumID}`,
+                    album => {
+                        console.log(album.songs)
+    
+                    app.innerHTML= Songs(album.songs);
+                })
+            }
+        });
+    
         app.addEventListener('click', function(){
             if(event.target.classList.contains("add-album__submit")){
                 const album = event.target.parentElement.querySelector(
                     ".add-album__albumtitle"
                 ).value;
+                const image = event.target.parentElement.querySelector(
+                    ".add-album__albumimg"
+                ).value;
+                const artistId = event.target.parentElement.querySelector(
+                    ".add-album__artistId"
+                ).value;
                 console.log(album);
                 apiActions.postRequest("https://localhost:44386/api/albums",
                 {
-                    name: album
+                    title: album,
+                    image: image,
+                    artistId: artistId
                 },
                 albums => {
                     console.log(albums);
@@ -175,9 +207,12 @@ function navArtists(){
                 ).value;
                 const albumTitle = event.target.parentElement.querySelector(".update-album__name"
                 ).value;
+                const artistId = event.target.parentElement.querySelector(".update-album__artistId"
+                ).value;
                 const albumData = {
                     id: albumID,
-                    name: albumTitle
+                    title: albumTitle,
+                    artistId: artistId
                 }
                 apiActions.putRequest(`https://localhost:44386/api/albums/${albumID}`,
                 albumData,
@@ -204,11 +239,15 @@ function navArtists(){
                     const albumId = event.target.parentElement.querySelector(
                         ".add-song__albumId"
                     ).value;
+                    const image = event.target.parentElement.querySelector(
+                        ".add-song__songimage"
+                    ).value;
                     console.log(song);
                     apiActions.postRequest("https://localhost:44386/api/songs",
                     {
-                        name: song,
-                        albumId: albumId
+                        title: song,
+                        albumId: albumId,
+                        image: image
                     },
                     songs => {
                         console.log(songs);
@@ -224,6 +263,7 @@ function navArtists(){
                     songs => {
                         app.innerHTML = Songs(songs);
                     })
+                    
                 }
             });
             app.addEventListener("click", function(){
@@ -244,9 +284,16 @@ function navArtists(){
                     ).value;
                     const songTitle = event.target.parentElement.querySelector(".update-song__name"
                     ).value;
+                    const albumId = event.target.parentElement.querySelector(".update-song__albumId"
+                    ).value;
+                    const image = event.target.parentElement.querySelector(".update-song__image"
+                    ).value;
+    
                     const songData = {
                         id: songID,
-                        name: songTitle
+                        title: songTitle,
+                        albumId: albumId,
+                        image: image
                     }
                     apiActions.putRequest(`https://localhost:44386/api/songs/${songID}`,
                     songData,
@@ -258,5 +305,5 @@ function navArtists(){
             });
     
         }
-    
-
+        
+   
