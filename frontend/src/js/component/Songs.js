@@ -1,20 +1,20 @@
 
 export default function Songs(songs) {
     return `
-    <ul>
+    <div class='objectGrid'>
             ${songs
               .map(song => {
                 return `
-                    <li>
-                        <h3>${song.title}</h3>
+                <div class='objectItem'>
+                <h3>${song.title}</h3>
                         <input class="song__id" type="hidden" value="${song.id}">
                         <button class="edit-song__submit" >Edit</button>
                         <button class="delete-song__submit">Delete</button>
-                    </li>
+                    </div>
                 `;
               })
               .join("")}
-         </ul>
+         </div>
          <section class="add-song">
             <input class="add-song__songtitle" type="text" placeholder="Add a song!">
             <select class= 'add-song__albumId' name="Album">

@@ -6,7 +6,7 @@ export default function Albums(albums) {
               .map(album => {
                 return `
                     <div class= 'objectItem'>
-                        <img src=${album.image}></img>
+                        <img class="album__image" src=${album.image}></img>
                         <h3>${album.title}</h3>
                         <input class="album__id" type="hidden" value="${album.id}">
                         <button class="edit-album__submit" >Edit</button>

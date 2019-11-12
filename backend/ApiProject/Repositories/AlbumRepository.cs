@@ -1,5 +1,6 @@
 ﻿using ApiProject.Context;
 using ApiProject.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,14 @@ namespace ApiProject.Repositories
 {
     public class AlbumRepository : Repository<Album>, IRepository<Album>
     {
-        private MusicContext db;
+        private DbContext db;
         public AlbumRepository(MusicContext context) : base(context)
         {
-
+            this.db = context;
         }
-
-        public IEnumerable<Album> GetByArtistID(int artistID)
+        public override Album GetById(int id)
         {
-            var albums = db.Albums.Where(p => p.ArtistID == artistID);
-            return albums;
+            return db.Set<Album>().Where(i => i.ID == id).Include("Songs").FirstOrDefault();
         }
     }
 }

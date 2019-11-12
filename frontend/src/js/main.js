@@ -60,6 +60,19 @@ function navArtists(){
             document.querySelector("#app").innerHTML = Artists(artists);
         });
     });
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("artist__image")){
+            const artistID = event.target.parentElement.querySelector(".artist__id").value;
+            console.log(artistID);
+            apiActions.getRequest(`https://localhost:44386/api/artists/${artistID}`,
+                artist => {
+                    console.log(artist.albums)
+
+                app.innerHTML= Albums(artist.albums);
+            })
+        }
+    });
+
     app.addEventListener('click', function(){
         if(event.target.classList.contains("add-artist__submit")){
             const artist = event.target.parentElement.querySelector(
@@ -128,6 +141,20 @@ function navArtists(){
                 app.innerHTML = Albums(albums);
             });
         });
+
+        app.addEventListener("click", function(){
+            if(event.target.classList.contains("album__image")){
+                const albumID = event.target.parentElement.querySelector(".album__id").value;
+                console.log(albumID);
+                apiActions.getRequest(`https://localhost:44386/api/albums/${albumID}`,
+                    album => {
+                        console.log(album.songs)
+    
+                    app.innerHTML= Songs(album.songs);
+                })
+            }
+        });
+    
         app.addEventListener('click', function(){
             if(event.target.classList.contains("add-album__submit")){
                 const album = event.target.parentElement.querySelector(
