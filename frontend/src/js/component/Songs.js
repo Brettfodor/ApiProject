@@ -6,17 +6,20 @@ export default function Songs(songs) {
               .map(song => {
                 return `
                 <div class='objectItem'>
-                <h3>${song.title}</h3>
+                        <h3>${song.title}</h3>
+                        <img class="song__image" src=${song.image}></img>                        
                         <input class="song__id" type="hidden" value="${song.id}">
+                        
                         <button class="edit-song__submit" >Edit</button>
                         <button class="delete-song__submit">Delete</button>
-                    </div>
+                </div>
                 `;
               })
               .join("")}
          </div>
          <section class="add-song">
             <input class="add-song__songtitle" type="text" placeholder="Add a song!">
+            <input class="add-song__songimage" type="hidden" value="./css/images/genericsong.jpg">
             <select class= 'add-song__albumId' name="Album">
             <option value="1">East Atlanta Santa</option>
             <option value="2">Blink 182</option>

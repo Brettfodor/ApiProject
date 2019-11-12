@@ -239,11 +239,15 @@ function navArtists(){
                     const albumId = event.target.parentElement.querySelector(
                         ".add-song__albumId"
                     ).value;
+                    const image = event.target.parentElement.querySelector(
+                        ".add-song__songimage"
+                    ).value;
                     console.log(song);
                     apiActions.postRequest("https://localhost:44386/api/songs",
                     {
                         title: song,
-                        albumId: albumId
+                        albumId: albumId,
+                        image: image
                     },
                     songs => {
                         console.log(songs);
@@ -282,11 +286,14 @@ function navArtists(){
                     ).value;
                     const albumId = event.target.parentElement.querySelector(".update-song__albumId"
                     ).value;
+                    const image = event.target.parentElement.querySelector(".update-song__image"
+                    ).value;
     
                     const songData = {
                         id: songID,
                         title: songTitle,
-                        albumId: albumId
+                        albumId: albumId,
+                        image: image
                     }
                     apiActions.putRequest(`https://localhost:44386/api/songs/${songID}`,
                     songData,

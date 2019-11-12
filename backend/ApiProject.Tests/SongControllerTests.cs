@@ -26,8 +26,8 @@ namespace ApiProject.Tests
         {
             var expectedSongs = new List<Song>()
             {
-                new Song(1, "Title", "Link", "Time", 1),
-                new Song(1, "Title", "Link", "Time", 1)
+                new Song(1, "Title", "Link", "Time", 1,"./css/images/genericsong.jpg"),
+                new Song(1, "Title", "Link", "Time", 1,"./css/images/genericsong.jpg")
         };
             songRepo.GetAll().Returns(expectedSongs);
 
@@ -39,7 +39,7 @@ namespace ApiProject.Tests
         [Fact]
         public void Post_Creates_New_Artist()
         {
-            var newSong = new Song(1, "Title", "Link", "Time", 1);
+            var newSong = new Song(1, "Title", "Link", "Time", 1, "./css/images/genericsong.jpg");
             var songList = new List<Song>();
 
             songRepo.When(t => t.Create(newSong))
@@ -56,11 +56,11 @@ namespace ApiProject.Tests
         public void Delete_Removes_Song()
         {
             var songId = 1;
-            var deletedSong = new Song(1, "Title", "Link", "Time", 1);
+            var deletedSong = new Song(1, "Title", "Link", "Time", 1, "./css/images/genericsong.jpg");
             var songList = new List<Song>()
             {
                 deletedSong,
-                new Song(1, "Title", "Link", "Time", 1)
+                new Song(1, "Title", "Link", "Time", 1,"./css/images/genericsong.jpg")
         };
 
             songRepo.GetById(songId).Returns(deletedSong);
@@ -77,11 +77,11 @@ namespace ApiProject.Tests
         [Fact]
         public void Put_Updates_Song()
         {
-            var originalSong = new Song(1, "Title", "Link", "Time", 1);
+            var originalSong = new Song(1, "Title", "Link", "Time", 1, "./css/images/genericsong.jpg");
             var expectedSongs = new List<Song>()
             {
                 originalSong            };
-            var updatedSong = new Song(1, "Title", "Link", "Time", 1);
+            var updatedSong = new Song(1, "Title", "Link", "Time", 1, "./css/images/genericsong.jpg");
 
             songRepo.When(t => songRepo.Update(updatedSong))
                 .Do(Callback.First(t => expectedSongs.Remove(originalSong))
